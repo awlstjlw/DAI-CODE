@@ -1,8 +1,12 @@
-# Anonymous Submission Code
+# Fair Dynamic Auctions via Equity-Constrained Pivot Mechanisms
 
-This folder contains the minimal code needed to reproduce the neural-network + simulation pipeline.
+We study repeated allocation of a scarce indivisible resource in dynamic auctions where strategic agents' private valuations evolve as a Markov process and the population is partitioned into exogenous groups. Although the dynamic pivot mechanism is efficient and satisfies periodic ex-post incentive compatibility and individual rationality, it can create persistent inter-group disparities when valuation processes differ structurally. We introduce \emph{$\epsilon$-periodic ex-post group fairness} ($\epsilon$-GF) to bound gaps in groups' expected discounted social welfare from every time step onward, and propose a fairness-aware mechanism that decouples equity control from truthful allocation: a state-dependent policy randomizes group selection to satisfy $\epsilon$-GF, while an adapted pivot rule runs within the selected group. To limit manipulation of the equity controller, group selection follows a report-independent virtual-state trajectory. We provide an exact dynamic-programming solution for the equity-constrained policy and a scalable neural approximation, $\mathsf{FairPivotNet}$. Experiments show that our approach attains near-target fairness with modest welfare and revenue loss relative to the unconstrained pivot benchmark.
 
-## Contents
+This project is an implementation of the research paper. It includes the **Pivot (Pivot)** mechanism, the **FairPivotBI** method and the **FairPivotNet** method (an adapted dynamic pivot mechanism).
+
+---
+
+## File Structure
 
 - `code/` — core pipeline:
   - `oracle/fair_pivot_bi.py` — exact backward-induction oracle
@@ -14,6 +18,33 @@ This folder contains the minimal code needed to reproduce the neural-network + s
 - `code_dp/` — DP baseline / simulation environment used by the evaluators
 - `run_pipeline.sh` / `run_pipeline.bat` — full pipeline
 - `run_smoke.sh` / `run_smoke.bat` — quick sanity check (4 settings, 2 epochs, 2 runs)
+
+## Environment Setup & Installation
+
+To run this project, you need a Python environment (3.11.9 recommended) with PyTorch and standard scientific computing libraries.
+
+## Experimental Setup & Hyperparameters
+
+### Neural Network Configuration
+
+Our neural network employs a Transformer-based backbone with per-group encoding and multi-head self-attention. Key hyperparameters are configured as follows:
+
+| Hyperparameter | Value |
+| :--- | :--- |
+| **Architecture** | Transformer (2-layer, 4-head self-attention) |
+| **Hidden Dimension** | 128 |
+| **Total Epochs** | 50 |
+| **Batch Size** | 256 |
+| **Optimizer** | AdamW |
+| **Base Learning Rate** | $5 \times 10^{-4}$ |
+| **Weight Decay** | $1 \times 10^{-3}$ |
+| **Learning Rate Scheduler** | Cosine Annealing |
+| **Loss Function** | MSE (Mean Squared Error) |
+| **Gradient Clipping** | Max Norm 1.0 |
+| **Dropout Rate** | 0.1 |
+| **Early Stopping** | Patience 15, Min Delta $1 \times 10^{-5}$ |
+
+*Note: Only the model weights with the lowest validation loss are saved during training to ensure optimal performance.*
 
 ## Quick Start
 
