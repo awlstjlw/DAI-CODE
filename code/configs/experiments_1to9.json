@@ -1,0 +1,402 @@
+{
+  "_comment": "Simplified 1-9 experiment configs: one-factor-at-a-time around a single baseline. 14 configs total (13 m=2 + 1 m=3). NUM_SETTINGS=1152 per config. State sampling is performed externally by sample_1to9_raw_datasets.py (default n_settings_sample=640, n_sample=160 = 40 high-phi + 40 low-phi + 80 random). train_split and n_sample_states are legacy fields kept for compatibility. The baseline tag is 'a_eps5'; everything else changes exactly one dimension from baseline. Seed convention (continuous within each ablation family): 50-52 epsilon / 60-61 N / 70-72 m+partition / 80 valuation / 90 transition / 100-103 T+delta.",
+  "configs": [
+    {
+      "tag": "a_eps5",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 50,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "a_eps1",
+      "epsilon": 1,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 51,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "a_eps9",
+      "epsilon": 9,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 52,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "b_n100",
+      "epsilon": 5,
+      "group_sizes": [
+        50,
+        50
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 60,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "b_n140",
+      "epsilon": 5,
+      "group_sizes": [
+        70,
+        70
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 61,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "c_m3",
+      "epsilon": 5,
+      "group_sizes": [
+        20,
+        20,
+        20
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          300,
+          341
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 1024,
+      "seed": 70,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "c_part_20_40",
+      "epsilon": 5,
+      "group_sizes": [
+        20,
+        40
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 71,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "c_part_10_50",
+      "epsilon": 5,
+      "group_sizes": [
+        10,
+        50
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 72,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "d_val_truncnorm",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "normal",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 80,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "e_trans_persistent",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "self",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 90,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "f_T9",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 10,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 100,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "f_T14",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 15,
+      "delta": 0.6,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 101,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "f_d04",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.4,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 102,
+      "n_sample_states": null,
+      "max_valuation": 400
+    },
+    {
+      "tag": "f_d08",
+      "epsilon": 5,
+      "group_sizes": [
+        30,
+        30
+      ],
+      "num_states": 2,
+      "T": 5,
+      "delta": 0.8,
+      "valuation_ranges": [
+        [
+          360,
+          401
+        ],
+        [
+          240,
+          281
+        ]
+      ],
+      "valuation_draw": "uniform",
+      "matrix_mode": "random",
+      "num_settings": 1152,
+      "train_split": 576,
+      "seed": 103,
+      "n_sample_states": null,
+      "max_valuation": 400
+    }
+  ]
+}
