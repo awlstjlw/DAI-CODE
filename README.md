@@ -99,6 +99,5 @@ By default group 3 (the m=3 experiment) is skipped because it is much slower; pa
 
 ## Notes
 
-- The code does **not** include data, checkpoints, or result CSVs. Running the scripts will regenerate them.
 - On CPU the full pipeline is slow; the oracle generation and training steps benefit from a CUDA GPU.
 - `PYTHONHASHSEED=0` is set in the scripts for reproducibility.
